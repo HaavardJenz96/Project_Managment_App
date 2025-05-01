@@ -1,13 +1,16 @@
+using System.ComponentModel.DataAnnotations;
+
 public class Customer
 {
-    public int Id { get; set; }
+    [Key]
+    public int id { get; set; }
 
-    public string Name { get; set; }
+    public string name { get; set; }
 
-    public DateTime? CustomerSince { get; set; }
+    public DateTime? customer_since { get; set; }
 
-    public int? ProjectId { get; set; }
+    public int? project_id { get; set; }
 
-    public int? EmployeeId { get; set; }
+    public int? employee_id { get; set; }
 }
 

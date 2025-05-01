@@ -7,7 +7,8 @@ using ProjectManagementAPI;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+        sqlOptions => sqlOptions.EnableRetryOnFailure()));
 
 
 
@@ -31,18 +32,17 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-    if (!context.customers.Any(s => s.Name == "John Doe"))
+    var customers = await context.customers.ToListAsync();
+
+    context.customers.Add(new Customer { name = "bjørk", employee_id = 2 }) ;
+    await context.SaveChangesAsync();
+
+    foreach (var customer in customers)
     {
-        var customer = new Customer{ Name = "Shell BP" };
-        context.customers.Add(customer);
-        context.SaveChanges();
+        Console.WriteLine($"ID: {customer.id}, Name: {customer.name}, Customer_Since: {customer.customer_since}");
     }
 
-    var query = context.customers.Where(s => s.Name == "John Doe");
-    foreach (var stud in query)
-    {
-        Console.WriteLine($"Student: {stud.Name}");
-    }
+
 }
 
 app.UseHttpsRedirection();
