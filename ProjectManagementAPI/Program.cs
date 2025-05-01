@@ -19,7 +19,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactDev", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
+
 var app = builder.Build();
+app.UseCors("AllowReactDev");
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -34,8 +47,8 @@ using (var scope = app.Services.CreateScope())
 
     var customers = await context.customers.ToListAsync();
 
-    context.customers.Add(new Customer { name = "bjørk", employee_id = 2 }) ;
-    await context.SaveChangesAsync();
+    //context.customers.Add(new Customer { name = "bjørk", employee_id = 2 }) ;
+    //await context.SaveChangesAsync();
 
     foreach (var customer in customers)
     {
@@ -44,6 +57,8 @@ using (var scope = app.Services.CreateScope())
 
 
 }
+
+
 
 app.UseHttpsRedirection();
 
