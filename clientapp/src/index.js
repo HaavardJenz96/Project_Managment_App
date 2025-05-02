@@ -4,11 +4,33 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import Home from './Pages/Home';
+import Customers from './Pages/Customers';
+
+import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community'; 
+import NotFound from './Pages/NotFound';
+// Register all Community features
+ModuleRegistry.registerModules([AllCommunityModule]);
+
+
+const router = createBrowserRouter([
+{
+  path: '/',
+  element: <Home />,
+  errorElement: <NotFound></NotFound>
+},
+
+{
+  path: '/Customers',
+  element: <Customers />,
+}
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router}></RouterProvider>
   </React.StrictMode>
 );
 
