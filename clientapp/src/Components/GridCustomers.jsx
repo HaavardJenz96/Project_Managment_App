@@ -2,7 +2,7 @@ import { AgGridReact } from "ag-grid-react"; // React Data Grid Component
 import React, { useState, useEffect } from "react";
 import "./GridStyle.css";
 
-const Grid = () => {
+const GridCustomers = () => {
   useEffect(() => {
     fetch("https://localhost:7003/api/customers") // Fetch data from server
       .then((result) => result.json()) // Convert to JSON
@@ -34,4 +34,4 @@ const Grid = () => {
   );
 };
 
-export default Grid;
+export default GridCustomers;
