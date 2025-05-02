@@ -21,4 +21,13 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectManagement.ServiceLibrary\ProjectManagement.ServiceLibrary.csproj" />
+    <ProjectReference Include="..\ProjectManagment.Data\ProjectManagment.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
 </Project>

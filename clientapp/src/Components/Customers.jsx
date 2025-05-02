@@ -6,7 +6,11 @@ const Customers = () => {
   useEffect(() => {
     fetch('/api/customers')  // relative to the ASP.NET Core server
       .then(res => res.json())
-      .then(data => setProjects(data))
+      .then(data =>  {
+        setProjects(data);
+        console.log('data', data);
+  })
+      
       .catch(err => console.error('Error:', err));
   }, []);
 
