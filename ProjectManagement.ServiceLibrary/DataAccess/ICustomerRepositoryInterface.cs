@@ -10,10 +10,10 @@ namespace ProjectManagement.ServiceLibrary.DataAccess
 {
     public interface ICustomerRepositoryInterface
     {
-        Task<IEnumerable<CustomerEntity>> GetAllAsync();
-        Task<CustomerEntity> GetByIdAsync(int id);
-        Task AddAsync(CustomerEntity customer);
-        Task UpdateAsync(CustomerEntity customer);
+        Task<IEnumerable<Customer>> GetAllAsync();
+        Task<Customer> GetByIdAsync(int id);
+        Task AddAsync(Customer customer);
+        Task UpdateAsync(Customer customer);
         Task DeleteAsync(int id);
         Task SaveChangesAsync();
     

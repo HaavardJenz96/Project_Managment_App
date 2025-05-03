@@ -6,6 +6,7 @@ using ProjectManagementAPI;
 using ProjectManagment.Data.Enteties;
 using ProjectManagement.ServiceLibrary.DataAccess;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -48,17 +49,20 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-    var customers = await context.customers.ToListAsync();
+    //var accMan = await context.AccountManagersView.ToListAsync();
+    ////var customers = await context.customers.ToListAsync();
+    ////var accountMan = await context.AccountManagersView.ToListAsync();
+    //////context.customers.Add(new Customer { name = "bjørk", employee_id = 2 }) ;
+    //////await context.SaveChangesAsync();
 
-    //context.customers.Add(new Customer { name = "bjørk", employee_id = 2 }) ;
-    //await context.SaveChangesAsync();
+    //foreach (var AccountMan in accMan)
+    //{
+    //    Console.WriteLine($"ID: {AccountMan.Id}, FullName: ¨{AccountMan.Full_Name}");
 
-    foreach (var customer in customers)
-    {
-        Console.WriteLine($"ID: {customer.id}, Name: {customer.name}, Customer_Since: {customer.customer_since}");
-    }
+    //}
 
- 
+
+
 }
 
 
