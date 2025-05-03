@@ -18,23 +18,23 @@ namespace ProjectManagement.ServiceLibrary.DataAccess
             this.context = context;
         }
 
-        public async Task<IEnumerable<ProjectManagment.Data.Enteties.CustomerEntity>> GetAllAsync()
+        public async Task<IEnumerable<ProjectManagment.Data.Enteties.Customer>> GetAllAsync()
         {
             return await context.customers.ToListAsync(); 
         }
 
-        public async Task<ProjectManagment.Data.Enteties.CustomerEntity> GetByIdAsync(int id)
+        public async Task<ProjectManagment.Data.Enteties.Customer> GetByIdAsync(int id)
         {
             return await context.customers.FindAsync(id);
         }
 
-        public async Task AddAsync(ProjectManagment.Data.Enteties.CustomerEntity customer)
+        public async Task AddAsync(ProjectManagment.Data.Enteties.Customer customer)
         {
             context.customers.Add(customer);
             await context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(ProjectManagment.Data.Enteties.CustomerEntity customer)
+        public async Task UpdateAsync(ProjectManagment.Data.Enteties.Customer customer)
         {
             context.Entry(customer).State = EntityState.Modified;
             await context.SaveChangesAsync();
