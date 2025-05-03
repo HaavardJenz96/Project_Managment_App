@@ -45,7 +45,7 @@ const GridCustomers = ({apiUrl, colDefs}) => {
        
             <div className="gridContainer">
           <AgGridReact rowData={rowData} columnDefs={colDefs} columnTypes={columnTypes}
-          style={{ width: '100%', height: '100%' }}
+          
           domLayout='autoHeight'
           />
           </div>
