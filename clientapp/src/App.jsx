@@ -1,6 +1,6 @@
 
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community'; 
-import Grid from "./Components/GridCustomers";
+import Grid from "./Components/Grid";
 import NavbarCustom from './Components/Navbar';
 
 // Register all Community features

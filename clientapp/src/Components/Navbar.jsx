@@ -29,7 +29,7 @@ function NavbarCustom() {
           
           </Nav>
           <Form className="d-flex">
-                <Nav.Link>fe</Nav.Link>
+                <Nav.Link as={Link} to="/AccountManagers" >Account Managers</Nav.Link>
             </Form>
         </Navbar.Collapse>
       </Container>

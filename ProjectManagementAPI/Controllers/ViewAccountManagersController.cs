@@ -22,7 +22,7 @@ public class AccountManagersController : ControllerBase
 
         foreach (var AccountMan in managers)
         {
-            Console.WriteLine($"ID: {AccountMan.Id}, FullName: ¨{AccountMan.Full_Name}");
+            Console.WriteLine($"ID: {AccountMan.Id}, FullName: ¨{AccountMan.Full_Name}, company assigned to: {AccountMan.CompanyAssignedTo}");
 
         }
 

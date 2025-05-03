@@ -14,6 +14,7 @@ namespace ProjectManagment.Data.Entities
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
         public string Full_Name { get; set; }
+        public string CompanyAssignedTo { get; set; } // 👈 Dette er c.name
         public string Email { get; set; }
         public DateTime Birth_Date { get; set; }
     }
