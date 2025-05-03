@@ -33,11 +33,22 @@ namespace ProjectManagementAPI.Controllers
         
         // GET: api/Customers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CustomerEntity>>> Getcustomers()
+        public async Task<ActionResult<IEnumerable<ProjectManagment.Data.Enteties.Customer>>> Getcustomers()
         {
             var customers = await _customerRepository.GetAllAsync(); // Legg til await her
+            
+            foreach (var customer in customers)
+            {
+                Console.WriteLine($"ID: {customer.Id}, Name: {customer.Name}, Customer_Since: {customer.CustomerSince}");
+
+            }
+
             return Ok(customers);
+
+          
+
         }
+
 
         //    // GET: api/Customers/5
         //    [HttpGet("{id}")]
