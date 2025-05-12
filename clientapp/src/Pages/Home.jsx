@@ -17,9 +17,14 @@ export default function Home() {
   return (
     <div>
       <NavbarCustom />
-      <h1 className="text-center mt-4">Home is where ./ is</h1>
+      <h1 className="text-center mt-4"> Key data</h1>
+      
+      <div className="project-chart m-4">
+      <h4>Project Categories</h4>
       <PieChart/>
-      <ButtonGroupCustom  />
+      </div>
+      
+    
     </div>
   );
 }
