@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Card, Row, Col, Button, Container } from "react-bootstrap";
 import GridCustomers from "../Components/Grid";
 import ButtonGroupCustom from "../Components/ButtonGroupCustom";
+import PieChart from "../Components/PieChart";
+
 
 export default function Home() {
   const [colDefs, setColDefs] = useState([
@@ -15,9 +17,14 @@ export default function Home() {
   return (
     <div>
       <NavbarCustom />
-      <h1 className="text-center mt-4">Home is where ./ is</h1>
-        
-      <ButtonGroupCustom  />
+      <h1 className="text-center mt-4"> Key data</h1>
+      
+      <div className="project-chart m-4">
+      <h4>Project Categories</h4>
+      <PieChart/>
+      </div>
+      
+    
     </div>
   );
 }

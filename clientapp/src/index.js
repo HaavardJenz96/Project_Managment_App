@@ -24,6 +24,7 @@ const router = createBrowserRouter([
 {
   path: '/Customers',
   element: <Customers />,
+  errorElement: <NotFound></NotFound>
 },
 {
   path: '/AccountManagers',
@@ -39,5 +40,3 @@ root.render(
 );
 
 
-// Optional: Log results or send to analytics
-reportWebVitals(console.log); // or replace with your own function
